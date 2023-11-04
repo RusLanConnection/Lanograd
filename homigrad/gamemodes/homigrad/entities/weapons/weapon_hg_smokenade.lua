@@ -13,6 +13,7 @@ SWEP.ViewModel = "models/jmod/explosives/grenades/firenade/incendiary_grenade.md
 SWEP.WorldModel = "models/jmod/explosives/grenades/firenade/incendiary_grenade.mdl"
 
 SWEP.Granade = "ent_hgjack_smoke"
+SWEP.Trap = true
 
 function SWEP:DrawWorldModel()
     local owner = self:GetOwner()

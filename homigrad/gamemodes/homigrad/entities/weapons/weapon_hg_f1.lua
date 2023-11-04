@@ -13,3 +13,4 @@ SWEP.ViewModel = "models/pwb/weapons/w_f1.mdl"
 SWEP.WorldModel = "models/pwb/weapons/w_f1.mdl"
 
 SWEP.Granade = "ent_hgjack_f1nade"
+SWEP.Trap = true

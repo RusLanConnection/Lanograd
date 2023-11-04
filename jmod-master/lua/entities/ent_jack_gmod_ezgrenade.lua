@@ -60,7 +60,7 @@ if SERVER then
 		self:SetUseType(ONOFF_USE)
 
 		---
-		timer.Simple(.01, function()
+		timer.Simple(0, function()
 			if IsValid(self) then
 				self:GetPhysicsObject():SetMass(self.Mass)
 				self:GetPhysicsObject():Wake()
@@ -170,7 +170,13 @@ if SERVER then
 
 			Spewn:SetPos(self:GetPos())
 			Spewn:Spawn()
-			Spewn:GetPhysicsObject():SetVelocity(self:GetPhysicsObject():GetVelocity() + VectorRand() * 250)
+			
+			local phys = Spewn:GetPhysicsObject() 
+			local phys2 = self:GetPhysicsObject()
+
+	    	if IsValid(phys) and IsValid(phys2) then 
+				phys:SetVelocity(phys2:GetVelocity() + VectorRand() * 250)
+			end
 			self:EmitSound("snd_jack_spoonfling.wav", 60, math.random(90, 110))
 		end
 	end

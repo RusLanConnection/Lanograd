@@ -91,14 +91,46 @@ function SWEP:Reload()
     if SERVER then
         if self.Armed then return end
         if self.DoNotArm then return end
-        func = function()
-            local ply = self:GetOwner()
-            local granade = ents.Create(self.Granade)
 
+        local ply = self:GetOwner()
+        local granade = ents.Create(self.Granade)
+
+        if ply:KeyDown(IN_WALK) and self.Trap then
+            
+            local tr = util.TraceHull( {
+                start = self:GetOwner():EyePos(),
+                endpos = self:GetOwner():EyePos() + ( self:GetOwner():GetAimVector() * 100 ),
+                filter = self:GetOwner(),
+                mins = Vector(-1.5,-1.5,-1.5),
+                maxs = Vector(1.5,1.5,1.5),
+            })
+        
+            print(tr.Entity)
+            if not IsValid(tr.Entity) and not tr.HitWorld then return end
+
+            self.ArmedEnt = granade
+            self.Armed = true
+            
+            granade:SetPos(tr.HitPos)
+            granade:SetAngles(tr.HitNormal:Angle())
+            granade:SetNoDraw(false)
+            granade:Spawn()
+
+            granade:EmitSound( "snd_jack_hmcd_click.wav", 60, 100, 1, CHAN_AUTO )
+            
+            granade.Constraint = constraint.Weld(granade, tr.Entity, 0, 0, 300, false, false)
+            granade:EmitSound( "snd_jack_hmcd_detonator.wav", 60, 100, 1, CHAN_AUTO )
+            
+            timer.Simple(0, function()
+                granade.Constraint:CallOnRemove( "RigGrenade", function( ent ) granade:Arm() end)
+            end)
+
+            self:Remove()
+            self:GetOwner():SelectWeapon("weapon_hands")
+        else
             granade:SetPos(ply:GetShootPos() + ply:GetAimVector() )
 	        granade:SetOwner(ply)
 	        granade:SetPhysicsAttacker(ply)
-            granade:SetCollisionGroup(COLLISION_GROUP_IN_VEHICLE)
             granade:SetNoDraw(true)
 	        granade:Spawn()
 
@@ -132,7 +164,7 @@ function SWEP:OnDrop()
 	    --grenarm:SetAngles(ply:EyeAngles()+Angle(45,45,0))
 	    grenarm:SetOwner(ply)
 	    --grenarm:SetPhysicsAttacker(ply)
-        grenarm:SetCollisionGroup(COLLISION_GROUP_WEAPON)
+        --grenarm:SetCollisionGroup(COLLISION_GROUP_WEAPON)
         --[[local phys = grenarm:GetPhysicsObject()              
 	    if not IsValid(phys) then grenarm:Remove() return end                         
 	    phys:SetVelocity(ply:GetVelocity() + ply:GetAimVector() * force)
