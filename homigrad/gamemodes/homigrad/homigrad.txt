@@ -1,0 +1,7 @@
+"homigrad"
+{
+	"base"		"sandbox"
+	"title"		"Lanograd"
+	"maps"		""
+	"menusystem"	"1"
+}
