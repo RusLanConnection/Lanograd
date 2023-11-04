@@ -705,6 +705,10 @@ CustomWeight = {
 	["models/player/combine_soldier_prisonguard.mdl"] = 40,
 }
 
+for i = 1,9 do
+	CustomWeight["models/player/unmasked/male_0"..i..".mdl"] = 40
+end
+
 for i = 1,6 do
 	CustomWeight["models/monolithservers/mpd/female_0"..i..".mdl"] = 20
 end

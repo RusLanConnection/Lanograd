@@ -19,7 +19,7 @@ Vectors = {
 ["weapon_akm"]=Vector(13,-2,2),
 ["weapon_fiveseven"]=Vector(14,0,4),
 ["weapon_hk_usp"]=Vector(0,-0.5,0),
-["weapon_deagle"]=Vector(0,-0.5,0),
+["weapon_deagle"]=Vector(4,-2,-2),
 ["weapon_beretta"]=Vector(13,0,4),
 ["weapon_ak74u"]=Vector(13,-1,2),
 ["weapon_l1a1"]=Vector(3,-2,2),
@@ -114,6 +114,13 @@ function SpawnWeapon(ply,clip1)
 				ply.wep:SetAngles(ang)
 
 				ply.wep:SetPos(ply.wep:GetPos() + Vector(3, 0, 0))
+			end
+
+			if ply.curweapon == "weapon_deagle" then
+				local ang = ply.wep:GetAngles()
+				ang:RotateAroundAxis(ang:Up(),200)
+				ang:RotateAroundAxis(ang:Forward(),-10)
+				ply.wep:SetAngles(ang)
 			end
 
 			ply.wep:SetCollisionGroup(COLLISION_GROUP_WEAPON)
