@@ -79,5 +79,5 @@ if SERVER then
 		end
 	end
 elseif CLIENT then
-	language.Add("ent_jack_gmod_ezsticknade", "EZ Stick Grenade")
+	
 end

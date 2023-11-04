@@ -10,5 +10,5 @@ ENT.WeaponName = "Fully-Automatic Shotgun"
 if SERVER then
 elseif CLIENT then
 	--
-	language.Add(ENT.ClassName, ENT.PrintName)
+	
 end

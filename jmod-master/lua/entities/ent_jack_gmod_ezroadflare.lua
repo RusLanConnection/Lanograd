@@ -252,5 +252,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezroadflare", "EZ Road Flare")
+	
 end

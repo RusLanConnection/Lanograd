@@ -10,5 +10,5 @@ ENT.WeaponName = "Flintlock Pistol"
 if SERVER then
 elseif CLIENT then
 	--
-	language.Add(ENT.ClassName, ENT.PrintName)
+	
 end

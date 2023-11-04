@@ -226,5 +226,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezcompactbox", "EZ Storage Box")
+	
 end

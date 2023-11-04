@@ -259,5 +259,5 @@ elseif CLIENT then
 		self:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_ezthermobaric", "EZ Thermobaric Bomb")
+	
 end

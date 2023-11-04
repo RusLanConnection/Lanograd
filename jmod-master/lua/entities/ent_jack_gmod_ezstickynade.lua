@@ -103,5 +103,5 @@ if SERVER then
 		self:Remove()
 	end
 elseif CLIENT then
-	language.Add("ent_jack_gmod_ezstickynade", "EZ Sticky Bomb")
+	
 end

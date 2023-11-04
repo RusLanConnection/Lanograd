@@ -313,5 +313,5 @@ elseif(CLIENT)then
 			end
 		end
 	end
-	language.Add("ent_jack_gmod_ezfurnace_gas", "EZ Smelting Furnace")
+	
 end

@@ -228,5 +228,5 @@ elseif CLIENT then
 		self:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_ezclusterbomb", "EZ Cluster Bomb")
+	
 end

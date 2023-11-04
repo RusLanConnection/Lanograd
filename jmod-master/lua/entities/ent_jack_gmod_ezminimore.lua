@@ -257,5 +257,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezminimore", "EZ Mini Claymore")
+	
 end

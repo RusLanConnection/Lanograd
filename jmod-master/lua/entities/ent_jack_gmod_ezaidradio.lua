@@ -476,5 +476,5 @@ elseif(CLIENT)then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezaidradio", "EZ Aid Radio")
+	
 end

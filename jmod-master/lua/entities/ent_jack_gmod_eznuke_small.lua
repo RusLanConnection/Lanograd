@@ -303,5 +303,5 @@ elseif CLIENT then
 		--self.Mdl:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_eznuke_small", "EZ Nano Nuclear Bomb")
+	
 end

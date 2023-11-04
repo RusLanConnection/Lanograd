@@ -297,5 +297,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_eztimebomb", "EZ Time Bomb")
+	
 end

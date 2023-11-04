@@ -148,5 +148,5 @@ elseif CLIENT then
 		self:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_ezanomaly_crate", "T H E   C R A T E")
+	
 end

@@ -192,5 +192,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezcrate", "EZ Resource Crate")
+	
 end

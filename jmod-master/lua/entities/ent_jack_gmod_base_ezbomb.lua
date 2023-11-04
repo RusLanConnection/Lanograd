@@ -310,5 +310,4 @@ elseif(CLIENT)then
 			self.Mdl:DrawModel()
 		else return end
 	end
-	language.Add("ent_jack_gmod_base_ezbomb","EZ Bomb Base")
 end

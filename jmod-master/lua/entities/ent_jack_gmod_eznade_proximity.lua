@@ -96,5 +96,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_eznade_proximity", "EZminiNade-Proximity")
+	
 end

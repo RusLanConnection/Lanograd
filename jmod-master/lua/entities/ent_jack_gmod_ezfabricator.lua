@@ -260,5 +260,5 @@ elseif(CLIENT)then
 			JMod.RenderModel(self.ZipZoop, BasePos - Forward * 15 - Right * 9 - Up * 21, DisplayAng)
 		end
 	end
-	language.Add("ent_jack_gmod_ezfabricator","EZ Fabricator")
+	
 end

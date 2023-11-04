@@ -122,5 +122,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezblackpowderpile", "EZ Black Powder Pile")
+	
 end

@@ -59,5 +59,5 @@ if SERVER then
 end
 
 if CLIENT then
-	language.Add("ent_jack_spoon", "Spoon")
+
 end

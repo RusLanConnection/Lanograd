@@ -189,5 +189,5 @@ elseif CLIENT then
 		--
 	end
 
-	language.Add("ent_jack_gmod_ezmbhg", "EZ Micro Black Hole Generator")
+	
 end

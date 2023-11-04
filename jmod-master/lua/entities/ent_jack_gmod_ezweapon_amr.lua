@@ -10,5 +10,5 @@ ENT.WeaponName = "Anti-Materiel Rifle"
 if SERVER then
 elseif CLIENT then
 	--
-	language.Add(ENT.ClassName, ENT.PrintName)
+	
 end

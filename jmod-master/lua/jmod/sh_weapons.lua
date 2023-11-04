@@ -425,14 +425,6 @@ for k, v in pairs(JMod.AmmoTable) do
 			end
 		end)
 	end
-
-	if CLIENT then
-		language.Add(k .. "_ammo", k)
-
-		if v.ent then
-			language.Add(v.ent, v.nicename)
-		end
-	end
 end
 
 function JMod.GetAmmoSpecs(typ)

@@ -466,5 +466,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezcriticalityweapon", "EZ Criticality Weapon")
+	
 end

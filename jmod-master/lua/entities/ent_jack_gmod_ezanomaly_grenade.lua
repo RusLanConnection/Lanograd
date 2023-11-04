@@ -610,5 +610,5 @@ elseif CLIENT then
 		self:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_ezanomaly_grenade", "T H E  G R E N A D E")
+	
 end

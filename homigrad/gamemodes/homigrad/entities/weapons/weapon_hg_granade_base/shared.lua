@@ -91,23 +91,24 @@ function SWEP:Reload()
     if SERVER then
         if self.Armed then return end
         if self.DoNotArm then return end
+        func = function()
+            local ply = self:GetOwner()
+            local granade = ents.Create(self.Granade)
 
-        local ply = self:GetOwner()
-        local granade = ents.Create(self.Granade)
+            granade:SetPos(ply:GetShootPos() + ply:GetAimVector() )
+	        granade:SetOwner(ply)
+	        granade:SetPhysicsAttacker(ply)
+            granade:SetCollisionGroup(COLLISION_GROUP_IN_VEHICLE)
+            granade:SetNoDraw(true)
+	        granade:Spawn()
 
-        granade:SetPos(ply:GetShootPos() + ply:GetAimVector() )
-	    granade:SetOwner(ply)
-	    granade:SetPhysicsAttacker(ply)
-        granade:SetCollisionGroup(COLLISION_GROUP_IN_VEHICLE)
-        granade:SetNoDraw(true)
-	    granade:Spawn()
+            granade:SetParent(ply)
 
-        granade:SetParent(ply)
+	        granade:Arm()
 
-	    granade:Arm()
-
-        self.ArmedEnt = granade
-        self.Armed = true
+            self.ArmedEnt = granade
+            self.Armed = true
+        end
     end
 end
 

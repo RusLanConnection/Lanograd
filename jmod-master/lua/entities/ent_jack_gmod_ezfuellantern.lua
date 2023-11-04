@@ -272,5 +272,5 @@ elseif CLIENT then
 		self:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_ezfuellantern", "EZ Fuel Lantern")
+	
 end

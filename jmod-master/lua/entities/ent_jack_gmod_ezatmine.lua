@@ -284,5 +284,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezatmine", "EZ Vehicle Mine")
+	
 end

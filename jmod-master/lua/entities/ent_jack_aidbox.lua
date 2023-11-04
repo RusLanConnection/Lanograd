@@ -317,8 +317,6 @@ if CLIENT then
 			draw.SimpleText(Name, "JMod-Stencil", 0, 0, TxtCol, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
 		end)
 	end
-
-	language.Add("ent_jack_aidbox", "Aid Package")
 end
 
 function ENT:SetupDataTables()

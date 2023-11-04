@@ -183,5 +183,5 @@ elseif CLIENT then
 		self:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_evirusbomb", "EZ Virus Canister")
+	
 end

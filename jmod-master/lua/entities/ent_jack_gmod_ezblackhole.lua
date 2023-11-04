@@ -272,5 +272,5 @@ elseif CLIENT then
 		render.DrawQuadEasy(Pos, -Tilt, 50 * AgeSize, 50 * AgeSize, GargantuaGlow)
 	end
 
-	language.Add("ent_jack_gmod_ezblackhole", "Micro Black Hole")
+	
 end

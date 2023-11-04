@@ -254,5 +254,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezfougasse", "EZ Fougasse Mine")
+	
 end

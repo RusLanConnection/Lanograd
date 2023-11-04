@@ -472,5 +472,5 @@ elseif(CLIENT)then
 		end
 	end
 
-	language.Add("ent_jack_gmod_ezfieldhospital", "EZ Automated Field Hospital")
+	
 end

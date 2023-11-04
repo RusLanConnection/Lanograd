@@ -51,5 +51,5 @@ if SERVER then
 		self:Remove()
 	end
 elseif CLIENT then
-	language.Add("ent_jack_gmod_ezimpactnade", "EZ Impact Nade")
+	
 end

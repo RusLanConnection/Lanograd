@@ -320,5 +320,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_eznuke_big", "EZ Thermonuclear Bomb")
+	
 end

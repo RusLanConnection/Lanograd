@@ -66,5 +66,5 @@ elseif CLIENT then
 		self:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_ezcheese", "EZ Edible Chess piece")
+	
 end

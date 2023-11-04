@@ -262,5 +262,5 @@ elseif CLIENT then
 		self.Mdl:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_ezmoab", "EZ Mega Bomb")
+	
 end

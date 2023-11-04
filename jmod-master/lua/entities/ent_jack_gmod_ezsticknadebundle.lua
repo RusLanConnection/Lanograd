@@ -120,5 +120,5 @@ if SERVER then
 		end)
 	end
 elseif CLIENT then
-	language.Add("ent_jack_gmod_ezsticknadebundle", "EZ Gebalte Ladung")
+	
 end

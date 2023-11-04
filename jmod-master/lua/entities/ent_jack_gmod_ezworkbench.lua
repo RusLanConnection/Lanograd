@@ -204,5 +204,4 @@ elseif(CLIENT)then
 		JMod.RenderModel(self.BottomCanopy,BasePos-Up*17+Right*2,BottomCanopyAng)
 		--]]
 	end
-	language.Add("ent_jack_gmod_ezworkbench","EZ Workbench")
 end

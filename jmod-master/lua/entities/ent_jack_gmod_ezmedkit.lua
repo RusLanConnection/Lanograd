@@ -129,5 +129,5 @@ elseif CLIENT then
 		self.Mdl:DrawModel()
 	end
 
-	language.Add("ent_jack_gmod_ezmedkit", "EZ Medkit")
+	
 end

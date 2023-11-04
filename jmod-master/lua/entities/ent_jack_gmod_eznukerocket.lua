@@ -387,5 +387,5 @@ elseif CLIENT then
 		end
 	end
 
-	language.Add("ent_jack_gmod_eznukerocket", "EZ Nuke Rocket")
+	
 end
