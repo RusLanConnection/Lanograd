@@ -123,6 +123,14 @@ else
 			end
 		end
 	end
+
+
+
+
+	--Переодевалка
+
+
+
 end
 
 function JMod.WhomILookinAt(ply, cone, dist)
@@ -196,6 +204,8 @@ function SWEP:Initialize()
 	self:SetHoldType(self.HoldType)
 	self:SetFists(false)
 	self:SetBlocking(false)
+
+	self.LastR = false
 end
 
 function SWEP:Deploy()
@@ -452,6 +462,19 @@ function SWEP:SetCarrying(ent, bone, pos, dist)
 	end
 end
 
+local LastR = false
+
+if SERVER then
+	util.AddNetworkString("RagdollSetColor")
+
+	net.Receive("RagdollSetColor",function()
+	    local rag = net.ReadEntity()
+	    local PlyColor = net.ReadVector()
+
+	    rag.GetPlayerColor = function() return PlyColor end
+	end)
+end
+
 function SWEP:Think()
 	if IsValid(self:GetOwner()) and self:GetOwner():KeyDown(IN_ATTACK2) and not self:GetFists() then
 		if IsValid(self.CarryEnt) then
@@ -510,6 +533,48 @@ function SWEP:Think()
 
 	if SERVER then
 		self:SetHoldType(HoldType)
+	end
+
+
+
+	if not IsValid(self.CarryEnt) then return end
+
+	local bone = self.CarryEnt:TranslatePhysBoneToBone(self.CarryBone)
+	local spine4 = self.CarryEnt:LookupBone("ValveBiped.Bip01_Spine2")
+
+	--Переодевалка 
+	local Is_R_Down = self:GetOwner().roleT and roundActiveName == "homicide" and self:GetOwner():KeyDown(IN_RELOAD) and (RagdollOwner(self.CarryEnt) or self.CarryEnt.deadbody)and (bone == spine4)
+
+	if !self.LastR and Is_R_Down then
+		self.HoldTime = CurTime() + 3
+		self:GetOwner():ChatPrint("Вы начинаете переодеваться.")
+	end
+
+	self.LastR = Is_R_Down
+
+	if self.LastR and self.HoldTime and CurTime() >= self.HoldTime then
+		self:GetOwner():ChatPrint("Вы переоделись.")
+		self.HoldTime = nil
+
+		local ent = RagdollOwner(self.CarryEnt) or (self.CarryEnt.deadbody and self.CarryEnt)
+
+		--Меняем имена
+		self:GetOwner():SetNWString("Nickname", ent:GetNWString("Nickname"))
+		ent:SetNWString("Nickname", self:GetOwner():Nick())
+
+		--Меняем цвет
+		self:GetOwner():SetPlayerColor(ent:GetNWVector("plycolor"))
+		ent:SetNWVector("plycolor", self:GetOwner():GetPlayerColor())
+
+		net.Start("RagdollSetColor") 
+    		net.WriteEntity(ragdoll)
+    		net.WriteVector(self:GetPlayerColor()) 
+		net.Broadcast()
+
+		--Меняет одежду
+		SetCloth(self:GetOwner(), ent.ClothingType)
+		SetCloth(ent, self:GetOwner().ClothingType)
+		SetCloth(self.CarryEnt, self:GetOwner().ClothingType)
 	end
 end
 

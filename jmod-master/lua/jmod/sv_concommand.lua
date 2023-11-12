@@ -61,17 +61,6 @@ concommand.Add("jmod_admin_sanitizemap", function(ply, cmd, args)
 	end
 end, nil, "Removes JMod radiation and from map and players")
 
-concommand.Add("jmod_debug", function(ply, cmd, args)
-	--JMod.ResourceEffect(JMod.EZ_RESOURCE_TYPES.PROPELLANT, Vector(100, 0, -100), Vector(-100, 0, -100), 1, 1, 1, 0)
-	--local Tr=ply:GetEyeTrace()
-	--util.Decal("GiantScorch", Tr.HitPos+Tr.HitNormal, Tr.HitPos-Tr.HitNormal)
-	--[[
-	local Eff = EffectData()
-	Eff:SetOrigin(ply:GetShootPos() + ply:GetAimVector() * 200)
-	util.Effect("eff_jack_floating_ice_chunk", Eff, true, true)
-	--]]
-end)
-
 concommand.Add("jmod_debug_killme", function(ply)
 	if not IsValid(ply) then return end
 	if not GetConVar("sv_cheats"):GetBool() then return end

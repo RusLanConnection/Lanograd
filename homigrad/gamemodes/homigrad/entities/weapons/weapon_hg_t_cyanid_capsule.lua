@@ -62,7 +62,7 @@ function SWEP:SecondaryAttack() end
 if SERVER then
 
     function SWEP:Poison(ent)
-        ent.poisoned = true
+        ent.EdaPoisoned = true
         self:GetOwner():EmitSound("snd_jack_hmcd_needleprick.wav",30)
         self:Remove()
         self:GetOwner():SelectWeapon("weapon_hands")

@@ -253,7 +253,7 @@ function Faking(ply) -- функция падения
 
 		pos = trhull.HitPos
 
-		--print(trhull.Fraction)
+		print(trhull.Fraction)
 
 		if trhull.Fraction <= 0.05 then
 			ply:ChatPrint("Слишком мало места.")
@@ -698,35 +698,16 @@ local function RemoveRag(self)
 end
 
 CustomWeight = {
-	["models/player/police_fem.mdl"] = 40,
-	["models/player/police.mdl"] = 40,
-	["models/player/combine_soldier.mdl"] = 40,
-	["models/player/combine_super_soldier.mdl"] = 40,
-	["models/player/combine_soldier_prisonguard.mdl"] = 40,
+	["models/player/police_fem.mdl"] = 20,
+	["models/player/police.mdl"] = 20,
+	["models/player/combine_soldier.mdl"] = 20,
+	["models/player/combine_super_soldier.mdl"] = 20,
+	["models/player/combine_soldier_prisonguard.mdl"] = 20,
 }
 
 for i = 1,9 do
-	CustomWeight["models/player/unmasked/male_0"..i..".mdl"] = 40
+	CustomWeight["models/player/unmasked/male_0"..i..".mdl"] = 20
 end
-
-for i = 1,6 do
-	CustomWeight["models/monolithservers/mpd/female_0"..i..".mdl"] = 20
-end
-
-for i = 1,6 do
-	CustomWeight["models/monolithservers/mpd/female_0"..i.."_2.mdl"] = 20
-end
-
-for i = 1,6 do
-	CustomWeight["models/monolithservers/mpd/male_0"..i..".mdl"] = 20
-end
-
-for i = 1,6 do
-	CustomWeight["models/monolithservers/mpd/male_0"..i.."_2.mdl"] = 20
-end
-
-
-
 
 
 
@@ -767,6 +748,7 @@ function PlayerMeta:CreateRagdoll(attacker,dmginfo) --изменение фун�
 	--rag:SetColor(self:GetColor()) --huy sosi garry
 	rag:SetNWVector("plycolor",self:GetPlayerColor())
 	rag:SetSkin(self:GetSkin())
+	rag.ClothingType = self.ClothingType
 	rag:Spawn()
 
 	rag:CallOnRemove("huyhjuy",function() self.firstrag = false end)
@@ -1148,7 +1130,7 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 			local phys = head
 			local angs = ply:EyeAngles()
 			angs:RotateAroundAxis(angs:Forward(),90)
-			--angs:RotateAroundAxis(angs:Up(),20)
+			angs:RotateAroundAxis(angs:Up(),20)
 			local shadowparams = {
 				secondstoarrive=0.5,
 				pos=head:GetPos()+vector_up*(20/math.Clamp(rag:GetVelocity():Length()/300,1,12)),
@@ -1261,7 +1243,7 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 			local angs = ply:EyeAngles()
 			angs:RotateAroundAxis(angs:Forward(),90)
 			angs:RotateAroundAxis(angs:Up(),90)
-			local speed = 30 - math.min(CustomWeight[rag:GetModel()] or 1, 5) or 1
+			local speed = 30 --[[- math.min(CustomWeight[rag:GetModel()] or 1, 5) or 1]]
 			
 			if(rag.ZacConsLH.Ent2:GetVelocity():LengthSqr()<1000) then
 				local shadowparams = {
@@ -1277,23 +1259,6 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 				}
 				phys:Wake()
 				phys:ComputeShadowControl(shadowparams)
-				--[[
-				shadowparams.pos=phys:GetPos()+ply:EyeAngles():Right()*-300
-				rag:GetPhysicsObjectNum( 11 ):Wake()
-				rag:GetPhysicsObjectNum( 11 ):ComputeShadowControl(shadowparams)				-переделывай говно
-				shadowparams.pos=phys:GetPos()-ply:EyeAngles():Forward()*300
-				rag:GetPhysicsObjectNum( 9 ):Wake()
-				rag:GetPhysicsObjectNum( 9 ):ComputeShadowControl(shadowparams)
-				shadowparams.pos=lh:GetPos()
-				--]]
-				--[[local angre=ply:EyeAngles()
-				angre:RotateAroundAxis(ply:EyeAngles():Forward(),-90)
-				shadowparams.angle=angre
-				shadowparams.maxangular=100
-				shadowparams.pos=rag:GetPhysicsObjectNum( 1 ):GetPos()
-				shadowparams.secondstoarrive=1
-				rag:GetPhysicsObjectNum( 0 ):Wake()
-				rag:GetPhysicsObjectNum( 0 ):ComputeShadowControl(shadowparams)]]--
 			end
 		end
 		if(ply:KeyDown(IN_FORWARD) and IsValid(rag.ZacConsRH))then
@@ -1302,7 +1267,7 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 			local angs = ply:EyeAngles()
 			angs:RotateAroundAxis(angs:Forward(),90)
 			angs:RotateAroundAxis(angs:Up(),90)
-			local speed = 30 - math.min(CustomWeight[rag:GetModel()] or 1, 5) or 1
+			local speed = 30 --[[- math.min(CustomWeight[rag:GetModel()] or 1, 5) or 1]]
 			
 			if(rag.ZacConsRH.Ent2:GetVelocity():LengthSqr()<1000)then
 				local shadowparams = {
@@ -1318,23 +1283,6 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 				}
 				phys:Wake()
 				phys:ComputeShadowControl(shadowparams)
-				--[[
-				shadowparams.pos=phys:GetPos()+ply:EyeAngles():Right()*300
-				rag:GetPhysicsObjectNum( 9 ):Wake()
-				rag:GetPhysicsObjectNum( 9 ):ComputeShadowControl(shadowparams)				-переделывай говно
-				shadowparams.pos=phys:GetPos()-ply:EyeAngles():Forward()*300
-				rag:GetPhysicsObjectNum( 11 ):Wake()
-				rag:GetPhysicsObjectNum( 11 ):ComputeShadowControl(shadowparams)
-				shadowparams.pos=rh:GetPos()
-				--]]
-				--[[local angre2=ply:EyeAngles()
-				angre2:RotateAroundAxis(ply:EyeAngles():Forward(),90)
-				shadowparams.angle=angre2
-				shadowparams.maxangular=100
-				shadowparams.pos=rag:GetPhysicsObjectNum( 1 ):GetPos()
-				shadowparams.secondstoarrive=1
-				rag:GetPhysicsObjectNum( 0 ):Wake()
-				rag:GetPhysicsObjectNum( 0 ):ComputeShadowControl(shadowparams)]]--
 			end
 		end
 		if(ply:KeyDown(IN_BACK) and IsValid(rag.ZacConsLH))then
@@ -1343,7 +1291,7 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 			local angs = ply:EyeAngles()
 			angs:RotateAroundAxis(angs:Forward(),90)
 			angs:RotateAroundAxis(angs:Up(),90)
-			local speed = 58 - math.min(CustomWeight[rag:GetModel()] or 1, 5) or 1
+			local speed = 30 --[[- math.min(CustomWeight[rag:GetModel()] or 1, 5) or 1]]
 			
 			if(rag.ZacConsLH.Ent2:GetVelocity():LengthSqr()<1000)then
 				local shadowparams = {
@@ -1351,7 +1299,7 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 					pos=chst:GetPos(),
 					angle=phys:GetAngles(),
 					maxangulardamp=10,
-					maxspeeddamp=10,
+					maxspeeddamp=100,
 					maxangular=50,
 					maxspeed=speed,
 					teleportdistance=0,
@@ -1367,7 +1315,7 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 			local angs = ply:EyeAngles()
 			angs:RotateAroundAxis(angs:Forward(),90)
 			angs:RotateAroundAxis(angs:Up(),90)
-			local speed = 30 - math.min(CustomWeight[rag:GetModel()] or 1, 5) or 1
+			local speed = 30 --[[- math.min(CustomWeight[rag:GetModel()] or 1, 5) or 1]]
 			
 			if(rag.ZacConsRH.Ent2:GetVelocity():LengthSqr()<1000)then
 				local shadowparams = {

@@ -318,14 +318,11 @@ end)
 hook.Add("PlayerCanPickupWeapon","PlayerManualPickup",function(ply,wep)
 	local allow = false
 	if wep.Spawned then
-		local vec = ply:EyeAngles():Forward()
-		local vec2 = (wep:GetPos() - ply:EyePos()):Angle():Forward()
-	
-		if vec:Dot(vec2) > 0.8 and not ply:HasWeapon(wep:GetClass()) then
-			if ply:KeyDown(IN_USE) and ply:KeyDown(IN_WALK) then
-				allow = true
-			end
+
+		if wep:IsPlayerHolding() and not ply:HasWeapon(wep:GetClass()) then
+			allow = true
 		end
+
 	else
 		allow = true
 	end
@@ -340,13 +337,8 @@ end)
 hook.Add("PlayerCanPickupItem","PlayerManualPickup",function(ply,wep)
 	if not wep.Spawned then return true end
 
-	local vec = ply:EyeAngles():Forward()
-	local vec2 = (wep:GetPos() - ply:EyePos()):Angle():Forward()
-
-	if vec:Dot(vec2) > 0.8 and not ply:HasWeapon(wep:GetClass()) then
-		if ply:KeyDown(IN_USE) and ply:KeyDown(IN_WALK) then
-			return true
-		end
+	if wep:IsPlayerHolding() then
+		return true
 	end
 
 	return false

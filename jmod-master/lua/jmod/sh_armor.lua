@@ -911,7 +911,124 @@ JMod.ArmorTable = {
 		wgt = 15,
 		dur = 8,
 		ent = "ent_jack_gmod_ezarmor_hazmat"
-	}
+	},
+
+
+
+	--Хомисайд
+	["hat_01"] = {
+		PrintName = "hat 01",
+		mdl = "models/modified/hat01_fix.mdl",
+		slots = {
+			head = .05,
+		},
+		def = BasicArmorProtectionProfile,
+		bon = "ValveBiped.Bip01_Head1",
+		siz = Vector(1, 1, 1),
+		pos = Vector(0.2, 4, 0),
+		ang = Angle(110, 180, 90),
+		wgt = 5,
+		dur = 15,
+		ent = "ent_jack_gmod_ezarmor_hat_01",
+	},
+
+	["hat_03"] = {
+		PrintName = "hat 03",
+		mdl = "models/modified/hat03.mdl",
+		slots = {
+			head = .05,
+		},
+		def = BasicArmorProtectionProfile,
+		bon = "ValveBiped.Bip01_Head1",
+		siz = Vector(1, 0.95, 1),
+		pos = Vector(0, 3.8, 0),
+		ang = Angle(100, 180, 90),
+		wgt = 5,
+		dur = 15,
+		ent = "ent_jack_gmod_ezarmor_hat_03",
+	},
+
+
+	["scarf01"] = {
+		PrintName = "scarf 01",
+		mdl = "models/sal/acc/fix/scarf01.mdl",
+		slots = {
+			mouthnose = .05,
+		},
+		def = BasicArmorProtectionProfile,
+		bon = "ValveBiped.Bip01_Spine4",
+		siz = Vector(1, 1, 1),
+		pos = Vector(2, -19, 0),
+		ang = Angle(100, 180, 90),
+		wgt = 5,
+		dur = 15,
+		ent = "ent_jack_gmod_ezarmor_scarf_01",
+	},
+
+	["hat06"] = {
+		PrintName = "hat 06",
+		mdl = "models/modified/hat06.mdl",
+		slots = {
+			head = .05,
+		},
+		def = BasicArmorProtectionProfile,
+		bon = "ValveBiped.Bip01_Head1",
+		siz = Vector(1, 1, 1),
+		pos = Vector(-0.5, 5, 0),
+		ang = Angle(100, 180, 90),
+		wgt = 5,
+		dur = 15,
+		ent = "ent_jack_gmod_ezarmor_hat_06",
+	},
+
+	["hat08"] = {
+		PrintName = "hat 08",
+		mdl = "models/modified/hat08.mdl",
+		slots = {
+			head = .05,
+		},
+		def = BasicArmorProtectionProfile,
+		bon = "ValveBiped.Bip01_Head1",
+		siz = Vector(1, 1, 1),
+		pos = Vector(0, 3.8, 0),
+		ang = Angle(100, 180, 90),
+		wgt = 5,
+		dur = 15,
+		ent = "ent_jack_gmod_ezarmor_hat_08",
+	},
+
+	["hat04"] = {
+		PrintName = "hat 04",
+		mdl = "models/modified/hat04.mdl",
+		slots = {
+			head = .05,
+		},
+		def = BasicArmorProtectionProfile,
+		bon = "ValveBiped.Bip01_Head1",
+		siz = Vector(1, 1, 1),
+		pos = Vector(0, 3.8, 0),
+		ang = Angle(100, 180, 90),
+		wgt = 5,
+		dur = 15,
+		ent = "ent_jack_gmod_ezarmor_hat_04",
+	},
+
+
+	["hat04"] = {
+		PrintName = "hat 04",
+		mdl = "models/modified/hat04.mdl",
+		slots = {
+			head = .05,
+		},
+		def = BasicArmorProtectionProfile,
+		bon = "ValveBiped.Bip01_Head1",
+		siz = Vector(1, 1, 1),
+		pos = Vector(0, 3.8, 0),
+		ang = Angle(100, 180, 90),
+		wgt = 5,
+		dur = 15,
+		ent = "ent_jack_gmod_ezarmor_hat_04",
+	},
 }
 
 -- Dynamically generate armor ents

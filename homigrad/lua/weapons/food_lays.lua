@@ -121,7 +121,7 @@ function SWEP:PrimaryAttack()
 	local ply = self:GetOwner()
 	ply:SetAnimation(PLAYER_ATTACK1)
 	if(SERVER)then
-		if self.poisoned then 
+		if self.EdaPoisoned then 
 			EdaOtravlena(ply)
 		else
 			ply.hungryregen = ply.hungryregen + 1

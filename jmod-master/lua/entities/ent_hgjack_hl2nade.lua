@@ -10,13 +10,13 @@ ENT.Model = "models/weapons/w_grenade.mdl"
 ENT.SpoonScale = 2
 
 if SERVER then
-	function ENT:Arm()
+	function ENT:Arm(secs)
 		self:SetBodygroup(2, 1)
 		self:SetState(JMod.EZ_STATE_ARMED)
 		self:SpoonEffect()
 
 		
-		local time = 5
+		local time = secs or 5
 		timer.Simple(time - 1,function()
 			player.EventPoint(self:GetPos(),"fragnade pre detonate",1024,self)
 		end)

@@ -122,7 +122,7 @@ function SWEP:Reload()
             granade:EmitSound( "snd_jack_hmcd_detonator.wav", 60, 100, 1, CHAN_AUTO )
             
             timer.Simple(0, function()
-                granade.Constraint:CallOnRemove( "RigGrenade", function( ent ) granade:Arm() end)
+                granade.Constraint:CallOnRemove( "RigGrenade", function( ent ) granade:Arm(1) end)
             end)
 
             self:Remove()

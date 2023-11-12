@@ -10,13 +10,13 @@ ENT.Model = "models/pwb/weapons/w_rgd5_thrown.mdl"
 ENT.SpoonScale = 2
 
 if SERVER then
-	function ENT:Arm()
+	function ENT:Arm(secs)
 		self:SetBodygroup(2, 1)
 		self:SetState(JMod.EZ_STATE_ARMED)
 		self:SpoonEffect()
 
 		
-		local time = math.random(3.2,4.2)
+		local time = secs or math.random(3.2,4.2)
 		timer.Simple(time - 1,function()
 			player.EventPoint(self:GetPos(),"fragnade pre detonate",1024,self)
 		end)

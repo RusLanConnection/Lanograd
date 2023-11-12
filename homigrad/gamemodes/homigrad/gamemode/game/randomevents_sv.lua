@@ -2,10 +2,7 @@ local PlayerMeta = FindMetaTable("Player")
 
 function PlayerMeta:InvoluntaryEvent()
 	if self.roleT and roundActiveName == "homicide" then return end
-
-    local Ma 
-    local Fe
-
+	
 	local MaSound = {
 		"snd_jack_hmcd_cough_male.wav",
 		"snd_jack_hmcd_sneeze_male.wav",
@@ -20,13 +17,7 @@ function PlayerMeta:InvoluntaryEvent()
 		"snd_jack_hmcd_fart.wav"
 	}
 
-	Fe = string.find(self:GetModel(), "female") and true or false
-
-	if Fe then
-		self:EmitSound(table.Random(FeSound),75,100)
-	else
-		self:EmitSound(table.Random(MaSound),75,100)
-	end
+	self:EmitSound(table.Random(string.find(self:GetModel(), "female") and FeSound or MaSound),75,100)
 
 end
 
